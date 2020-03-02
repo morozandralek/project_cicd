@@ -8,7 +8,7 @@ pipeline {
         stage('Stop and Remove old VM') { 
             steps { 
                     sh """
-                    cd project_cicd
+                    cd /var/lib/jenkins/workspace/Project_CI_CD/10.Start_deploy/project_cicd
                     vagrant halt
                     vagrant destroy -f
                     """
