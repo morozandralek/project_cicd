@@ -26,8 +26,9 @@ pipeline {
         stage('Run VM'){
         	steps {
                     sh """
-                    cd project_cicd
-                    vagrant up
+                    pwd
+                    #cd project_cicd
+                    #vagrant up
                     """
         	}
         }
