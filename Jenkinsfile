@@ -18,11 +18,13 @@ pipeline {
 
         stage('Clone repository') { 
             steps { 
+                    deleteDir()
                     sh """
                     git clone git@github.com:morozandralek/project_cicd.git
                     cd project_cicd
                     cp -r * /var/lib/jenkins/VM/
                     """
+                    deletedir
             }
         }
 
