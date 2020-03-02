@@ -5,17 +5,28 @@ pipeline {
         
     stages {
 
+        stage('Remove old files and stop VM') { 
+            steps { 
+                    sh """
+                    vagrant halt
+                    vagrant destoy -f
+                    """
+                    deleteDir()
+            }
+        }
+
         stage('Clone repository') { 
             steps { 
                     deleteDir()
                     git url: 'git@github.com:morozandralek/project_cicd.git'
             }
         }
-        stage('Git push'){
+
+        stage('Run VM'){
         	steps {
-        	        sh """
-        				vagrant up
-        			"""
+                    sh """
+                    vagrant up
+                    """
         	}
         }
     }
