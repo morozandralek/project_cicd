@@ -11,12 +11,12 @@ pipeline {
                     vagrant halt
                     vagrant destroy -f
                     """
+                    deleteDir()
             }
         }
 
         stage('Clone repository') { 
             steps { 
-                    deleteDir()
                     git url: 'git@github.com:morozandralek/project_cicd.git'
             }
         }
