@@ -8,7 +8,6 @@ pipeline {
         stage('Stop and Remove old VM') { 
             steps { 
                     sh """
-                    cd project_cicd
                     vagrant halt
                     vagrant destroy -f
                     """
