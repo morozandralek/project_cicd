@@ -5,13 +5,12 @@ pipeline {
         
     stages {
 
-        stage('Remove old files and stop VM') { 
+        stage('Stop and Remove old VM') { 
             steps { 
                     sh """
                     vagrant halt
-                    vagrant destoy -f
+                    vagrant destroy -f
                     """
-                    deleteDir()
             }
         }
 
