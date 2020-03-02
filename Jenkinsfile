@@ -17,13 +17,16 @@ pipeline {
 
         stage('Clone repository') { 
             steps { 
-                    git url: 'git@github.com:morozandralek/project_cicd.git'
+                    sh """
+                    git clone git@github.com:morozandralek/project_cicd.git
+                    """
             }
         }
 
         stage('Run VM'){
         	steps {
                     sh """
+                    cd project_cicd
                     vagrant up
                     """
         	}
