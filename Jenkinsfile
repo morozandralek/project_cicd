@@ -11,6 +11,7 @@ pipeline {
                     cd /var/lib/jenkins/VM/
                     vagrant halt
                     vagrant destroy -f
+                    rm -rf *
                     """
             }
         }
