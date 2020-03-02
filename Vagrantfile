@@ -6,12 +6,12 @@ Vagrant.configure("2") do |config|
   SCRIPT
 
 
-  config.vm.define "srv-wordpress" do |nodecent|
+  config.vm.define "srv-wordpress-1" do |nodecent|
      nodecent.vm.box = "centos/7"
-     nodecent.vm.network "private_network", ip: "192.168.56.170"
-     nodecent.vm.hostname = "srv-wordpress"
+     nodecent.vm.network "private_network", ip: "192.168.56.180"
+     nodecent.vm.hostname = "srv-wordpress-1"
      nodecent.vm.provider "virtualbox" do |vb|
-         vb.name = "srv-wordpress"
+         vb.name = "srv-wordpress-1"
          vb.gui = false
          vb.memory = 2048
          vb.cpus = 2

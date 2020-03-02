@@ -8,11 +8,10 @@ pipeline {
         stage('Stop and Remove old VM') { 
             steps { 
                     sh """
-                    cd /var/lib/jenkins/workspace/Project_CI_CD/10.Start_deploy/project_cicd
+                    cd /var/lib/jenkins/VM/
                     vagrant halt
                     vagrant destroy -f
                     """
-                    deleteDir()
             }
         }
 
@@ -20,6 +19,8 @@ pipeline {
             steps { 
                     sh """
                     git clone git@github.com:morozandralek/project_cicd.git
+                    cd project_cicd
+                    cp -r * /var/lib/jenkins/VM/
                     """
             }
         }
@@ -28,7 +29,7 @@ pipeline {
         	steps {
                     sh """
                     pwd
-                    cd project_cicd
+                    cd /var/lib/jenkins/VM/
                     vagrant up
                     """
         	}
