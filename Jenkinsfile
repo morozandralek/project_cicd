@@ -29,11 +29,28 @@ pipeline {
         stage('Run VM'){
         	steps {
                     sh """
-                    pwd
                     cd /var/lib/jenkins/VM/
                     vagrant up
                     """
         	}
+        }
+
+        stage('Deploy Nginx and Proxy'){
+            steps {
+                    sh """
+                    cd /var/lib/jenkins/VM/
+                    ansible-playbook -i inventory.yaml playbook-proxy.yaml
+                    """
+            }
+        }
+
+        stage('UP docker-compose mysql and wordpress'){
+            steps {
+                    sh """
+                    cd /var/lib/jenkins/VM/
+                    ansible-playbook -i inventory.yaml playbook-wordpress.yaml
+                    """
+            }
         }
     }
     post {
