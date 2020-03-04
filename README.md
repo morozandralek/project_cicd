@@ -9,3 +9,14 @@
 - Used database: MySQL
 - [GitHUB repository](https://github.com/morozandralek/project_cicd.git)
 
+### High Level Design
+![alt text]()
+
+### Technologies which were used in project
+**Orchestration:** Jenkins
+**Automation tools:** Ansible
+**Infrastructure:** VirtualBox, Vagrant
+**Container:** Docker-compose
+**CVS:** GitHub
+**CI description:** by schedule
+**Notification:** Slack
