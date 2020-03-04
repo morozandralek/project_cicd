@@ -13,10 +13,10 @@
 ![alt text]()
 
 ### Technologies which were used in project
-**Orchestration:** Jenkins
-**Automation tools:** Ansible
-**Infrastructure:** VirtualBox, Vagrant
-**Container:** Docker-compose
-**CVS:** GitHub
-**CI description:** by schedule
-**Notification:** Slack
+- **Orchestration:** Jenkins
+- **Automation tools:** Ansible
+- **Infrastructure:** VirtualBox, Vagrant
+- **Container:** Docker-compose
+- **CVS:** GitHub
+- **CI description:** by schedule
+- **Notification:** Slack
