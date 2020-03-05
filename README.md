@@ -7,6 +7,7 @@
 - Name: Wordpress
 - Application is written in PHP
 - Used database: MySQL
+- Proxy: Nginx
 - [GitHUB repository](https://github.com/morozandralek/project_cicd.git)
 
 ### High Level Design
