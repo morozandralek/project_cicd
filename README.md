@@ -11,7 +11,7 @@
 - [GitHUB repository](https://github.com/morozandralek/project_cicd.git)
 
 ### High Level Design
-![alt text]()
+![alt text](https://github.com/morozandralek/project_cicd/blob/master/pipline.png)
 
 ### Technologies which were used in project
 - **Orchestration:** Jenkins
