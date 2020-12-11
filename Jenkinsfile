@@ -1,8 +1,5 @@
 pipeline {
-    agent {
-    	label 'node3'
-    }
-        
+    agent any
     stages {
 
         stage('Stop and Remove old VM') { 
