@@ -3,20 +3,19 @@ pipeline {
     agent any
 
     environment {
-        first_path = 'Test'
+        url = 'Test'
     }
+
+    def urlWithDef = 'Test2'
 
     stages {
 
         stage('Build_FEX_CMECE_RH8') { 
 
             steps { 
-                    git url: 'git@github.com:morozandralek/project_cicd.git'
-                    sh """
-                    pwd
-                    ls -la
-                    """
-                    print(env.first_path)
+                    print("print env url", env.first_path)
+                    print(${urlWithDef})
+                    print(${urlWithUI})
                     deleteDir()
             }
         }
