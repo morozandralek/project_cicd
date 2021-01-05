@@ -2,6 +2,10 @@ pipeline {
 
     agent any
 
+    enviroment {
+        first_path = 'Test'
+    }
+
     stages {
 
         stage('Build_FEX_CMECE_RH8') { 
@@ -12,6 +16,7 @@ pipeline {
                     pwd
                     ls -la
                     """
+                    print(env.first_path)
                     deleteDir()
             }
         }
