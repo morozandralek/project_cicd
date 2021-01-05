@@ -1,3 +1,5 @@
+def urlWithDef = 'Test2'
+
 pipeline {
 
     agent any
@@ -6,16 +8,14 @@ pipeline {
         url = 'Test'
     }
 
-    def urlWithDef = 'Test2'
-
     stages {
 
         stage('Build_FEX_CMECE_RH8') { 
 
             steps { 
                     print("print env url", env.first_path)
-                    print(${urlWithDef})
-                    print(${urlWithUI})
+                    echo "urlWithDef " ${urlWithDef}
+                    echo "urlWithUI " ${urlWithUI}
                     deleteDir()
             }
         }
