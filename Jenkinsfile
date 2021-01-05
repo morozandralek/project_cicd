@@ -13,7 +13,7 @@ pipeline {
         stage('Build_FEX_CMECE_RH8') { 
 
             steps { 
-                    print("print env url", env.first_path)
+                    print(env.first_path)
                     echo "urlWithDef - ${urlWithDef}"
                     echo "urlWithUI - ${urlWithUI}"
                     deleteDir()
