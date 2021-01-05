@@ -2,7 +2,7 @@ pipeline {
 
     agent any
 
-    enviroment {
+    environment {
         first_path = 'Test'
     }
 
