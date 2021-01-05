@@ -1,13 +1,16 @@
 pipeline {
+
     agent any
+
     stages {
 
-        stage('Clone repository') { 
+        stage('Build_FEX_CMECE_RH8') { 
+
             steps { 
                     deleteDir()
                     git url: 'git@github.com:morozandralek/project_cicd.git'
                     sh """
-                    cp -r * /var/lib/jenkins/VM/
+                    pwd
                     ls -la
                     """
             }
