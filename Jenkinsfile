@@ -14,8 +14,8 @@ pipeline {
 
             steps { 
                     print("print env url", env.first_path)
-                    echo "urlWithDef " ${urlWithDef}
-                    echo "urlWithUI " ${urlWithUI}
+                    echo "urlWithDef - ${urlWithDef}"
+                    echo "urlWithUI - ${urlWithUI}"
                     deleteDir()
             }
         }
