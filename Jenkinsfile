@@ -18,8 +18,6 @@ pipeline {
                        """
 	          	    }
 
-                    sh """cat docker-image/local.app.properties"""
-
             }
         }
 
