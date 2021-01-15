@@ -2,6 +2,15 @@ pipeline {
     agent any
     stages {
 
+
+        stage('Clone repository') { 
+            steps { 
+                    deleteDir()
+                    git branch: 'test_bash_cred', url: 'git@github.com:morozandralek/project_cicd.git'
+                    sh 'pwd'
+            }
+        }
+
         stage('Password') { 
             steps { 
 
