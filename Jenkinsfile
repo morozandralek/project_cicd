@@ -2,61 +2,15 @@ pipeline {
     agent any
     stages {
 
-        stage('Stop and Remove old VM') { 
+        stage('Password') { 
             steps { 
-                    sh """
-                    cd /var/lib/jenkins/VM/
-                    vagrant halt
-                    vagrant destroy -f
-                    rm -rf *
-                    """
-            }
-        }
+                    withCredentials([usernamePassword(credentialsId: '12e01b37-86a4-4082-89c0-f1fd4a666769', usernameVariable: 'PSQL_USERNAME', passwordVariable: 'PSQL_PASSWORD')]) {			
+	                sh '''
+	                psql postgresql://${PSQL_USERNAME}:${PSQL_PASSWORD}@localhost:5432/postgres -c 'select * from test_table'
+	                '''
+	          	}
 
-        stage('Clone repository') { 
-            steps { 
-                    deleteDir()
-                    git url: 'git@github.com:morozandralek/project_cicd.git'
-                    sh """
-                    cp -r * /var/lib/jenkins/VM/
-                    ls -la
-                    """
-            }
-        }
-
-        stage('Run VM'){
-        	steps {
-                    sh """
-                    cd /var/lib/jenkins/VM/
-                    vagrant up
-                    """
-        	}
-        }
-
-        stage('Deploy Nginx and Proxy'){
-            steps {
-                    sh """
-                    cd /var/lib/jenkins/VM/
-                    ansible-playbook -i inventory.yaml playbook-proxy.yaml
-                    """
-            }
-        }
-
-        stage('UP docker-compose mysql and wordpress'){
-            steps {
-                    sh """
-                    cd /var/lib/jenkins/VM/
-                    ansible-playbook -i inventory.yaml playbook-wordpress.yaml
-                    """
             }
         }
     }
-    post {
-            success {
-                slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-            }
-            failure {
-                slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-            }
-        }
 }
