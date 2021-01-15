@@ -22,7 +22,7 @@ pipeline {
                        """
 	          	    }
 
-                    sh """ pwd && echo docker-image/local.app.properties"""
+                    // sh """ pwd && echo docker-image/local.app.properties"""
 
             }
         }
